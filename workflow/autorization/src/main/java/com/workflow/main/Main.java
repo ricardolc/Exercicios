@@ -22,9 +22,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 
-@ComponentScan({"com.workflow.controller"})
-@EntityScan("com.workflow.model")
-@EnableJpaRepositories("com.workflow.repository")
+@ComponentScan({"com.workflow"})
+//@ComponentScan({"com.workflow.controller"})
+//@EntityScan("com.workflow.model")
+//@EnableJpaRepositories("com.workflow.repository")
 
 
 public class Main {

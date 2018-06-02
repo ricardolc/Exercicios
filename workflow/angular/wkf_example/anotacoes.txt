@@ -1,0 +1,30 @@
+ng --version
+Angular CLI: 6.0.7
+Node: 8.10.0
+OS: win32 x64
+Angular: 6.0.3
+
+
+$ npm --version
+5.6.0
+
+
+
+
+npm install -g @angular/cli
+ng new app-site
+cd app-site
+ng serve --open
+
+em app-site/src/app criar uma pasta chamada services
+
+
+
+problema no observable
+
+Steps I took to resolve Issue:
+
+Uninstalled angular cli npm uninstall @angular/cli -g
+Installed rxJS npm install rxjs
+Cleared cache npm cache clean
+Installed angular cli npm install @angular/cli -g

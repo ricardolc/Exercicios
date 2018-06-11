@@ -1,15 +1,18 @@
-package com.workflow.main;
-
-
+package com.rabbit;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
+//http://javainuse.com/spring/spring-boot-rabbitmq-hello-world
+//http://local cde43443fvrb 6y7ujhñhost:8080/javainuse-rabbitmq/producer?empName=Ricardo Lopes&empId=emp001
+//http://localhost:15672/
+//https://www.youtube.com/watch?v=h8b1dXgPulQ
+
+
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+//import org.springframework.context.annotation.ComponentScan;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.service.ApiInfo;
@@ -17,29 +20,28 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-//http://www.ciceroednilson.com.br/desenvolvendo-uma-aplicacao-web-com-angular-4-e-spring-boot-parte-2-criando-o-banco-de-dados/
-
 @SpringBootApplication
 @EnableSwagger2
 
-//	@ComponentScan({"com.workflow"})
-@ComponentScan({"com.workflow.controller"})
-@EntityScan("com.workflow.model")
-@EnableJpaRepositories("com.workflow.repository")
+//@ComponentScan({"com.rabbit"})
 
+//@ComponentScan({"com.workflow.controller"})
+//@EntityScan("com.workflow.model")
+//@EnableJpaRepositories("com.workflow.repository")
 
 public class Main {
 
+//https://spring.io/guides/gs/spring-boot/
+	
 	public static void main(String[] args) {
-		System.getProperties().put( "server.port", 8090 );  //8181 port is set here
-		SpringApplication.run(Main.class, args);
+
+		SpringApplication.run(
+				new Object[] { Main.class }, args);
 	}
 	
-
     @Bean
     public Docket newsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-//                .groupName("greetings")
                 .apiInfo(apiInfo())
                 .select()
                 .paths(regex("/service.*"))
@@ -48,17 +50,15 @@ public class Main {
      
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("WorkFlow - Documentação Swagger")
+                .title("Rabbit - Poc - Swagger")
                 .description("Spring REST Sample with Swagger")
                 .termsOfServiceUrl("http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open")
-                .contact("Niklas Heidloff")
+//                .contact("ContactName")
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://github.com/IBM-Bluemix/news-aggregator/blob/master/LICENSE")
                 .version("2.0")
                 .build();
     }
 	
-
-
-
+	
 }

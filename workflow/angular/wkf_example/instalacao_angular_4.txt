@@ -1,0 +1,50 @@
+> npm remove -g @angular/cli
+> npm install -g @angular/cli@1.4.10
+> ng --version
+  @angular/cli: 1.4.10
+> ng new myangular4 --ng4
+
+==============
+
+https://stackoverflow.com/questions/42831527/create-project-with-angular-4-release-using-angular-cli
+https://github.com/angular/angular/blob/master/CHANGELOG.md
+Angular CLI: 6.0.7
+Node: 8.11.2
+OS: win32 x64
+Angular: 6.0.3
+... animations, common, compiler, compiler-cli, core, forms
+... http, language-service, platform-browser
+... platform-browser-dynamic, router
+
+Package                           Version
+-----------------------------------------------------------
+@angular-devkit/architect         0.6.7
+@angular-devkit/build-angular     0.6.7
+@angular-devkit/build-optimizer   0.6.7
+@angular-devkit/core              0.6.7
+@angular-devkit/schematics        0.6.7
+@angular/cli                      6.0.7
+@ngtools/webpack                  6.0.7
+@schematics/angular               0.6.7
+@schematics/update                0.6.7
+rxjs                              6.2.0
+typescript                        2.7.2
+webpack                           4.8.3
+
+https://github.com/angular/angular/blob/master/CHANGELOG.md
+
+
+Installing RC.1
+We have two main ways to update. If you have an existing project, you should be able to run:
+
+On Linux/Mac: npm install @angular/{common,compiler,compiler-cli,core,forms,http,platform-browser,platform-browser-dynamic,platform-server,router,animations}@next --save 
+On Windows: npm install @angular/common@next @angular/compiler@next @angular/compiler-cli@next @angular/core@next @angular/forms@next @angular/http@next @angular/platform-browser@next @angular/platform-browser-dynamic@next @angular/platform-server@next @angular/router@next @angular/animations@next --save
+
+npm install typescript@2.2.1 --save
+npm install @angular/cli@1.0.0 -g
+
+npm i npm@latest -g
+ng new project_new --ng4
+
+
+ 

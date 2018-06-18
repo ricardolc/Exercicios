@@ -18,12 +18,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 //http://www.ciceroednilson.com.br/desenvolvendo-uma-aplicacao-web-com-angular-4-e-spring-boot-parte-2-criando-o-banco-de-dados/
-
+//http://www.thejavageek.com/2017/06/16/crud-application-using-angular-4-spring-rest-web-services-spring-data-jpa/
 @SpringBootApplication
 @EnableSwagger2
 
-//	@ComponentScan({"com.workflow"})
-@ComponentScan({"com.workflow.controller"})
+//@ComponentScan({"com.workflow"})
+@ComponentScan({"com.workflow.controller", "com.workflow.service"})
 @EntityScan("com.workflow.model")
 @EnableJpaRepositories("com.workflow.repository")
 

@@ -1,0 +1,12 @@
+
+-- instalando Java JRE
+
+sudo apt-get install default-jre
+
+-- setando a variavel java_home
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+sudo apt-get install maven

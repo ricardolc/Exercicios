@@ -22,7 +22,7 @@ class Gato extends Animal {
 
 }
 
-class Cachorro extends Animal, FilhoDoSenhor implements Comparable {
+class Cachorro extends Animal implements Comparable  {
 
 	@Override
 	public void consulta() {

@@ -1,0 +1,14 @@
+
+
+<a routerLink="/">back</a>
+
+<h2>Add New</h2>
+
+
+<form id = "formNewPeople" name = "formNewPeople" #peopleData = "ngForm" (ngSubmit) = "addNewPeople(peopleData.value)">
+
+      <label>Name: </label>
+      <input type="text" name="nome" id="nome" placeholder="nome" ngModel>
+      <input type="ativo" name="ativo" id="ativo" placeholder="ativo" ngModel>
+      <input type="submit" value = "Add">
+</form>

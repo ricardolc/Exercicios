@@ -1,0 +1,15 @@
+<a routerLink='/people'>Add</a>
+
+<table>
+  <tr>
+    <th>codigo</th>
+    <th>nome</th>
+    <th>ativo</th>
+  </tr>
+  <tr *ngFor="let people of peoples">
+    <td>{{people.codigo}}</td>
+    <td>{{people.nome}}</td>
+    <td>{{people.ativo}}</td>
+  </tr>
+
+</table>

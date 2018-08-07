@@ -6,6 +6,46 @@ sudo apt-get install default-jre
 -- instalando o maven
 sudo apt-get install maven
 
+-- instalando o ngingx
+sudo apt-get -y install apache2
+sudo apt-get install apache2 apache2-doc apache2-utils
+
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod proxy_balancer
+sudo a2enmod lbmethod_byrequests
+
+sudo systemctl restart apache2
+
+disabled
+sudo /etc/init.d/apache2 restart
+
+cd app/Exercicios/workflow/autorization/target
+
+java -jar demo-0.0.1-SNAPSHOT.jar
+sudo nano /etc/apache2/sites-enabled/000-default.conf
+
+
+<VirtualHost *:80>
+    ProxyPreserveHost On
+
+    # Servers to proxy the connection, or;
+    # List of application servers:
+    # Usage:
+    # ProxyPass / http://[IP Addr.]:[port]/
+    # ProxyPassReverse / http://[IP Addr.]:[port]/
+    # Example:
+    ProxyPass /autorization http://localhost:8090/
+    ProxyPassReverse /autorization		 http://localhost:8090/
+
+    ServerName localhost
+
+
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+
 
 -- setando a variavel java_home
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"

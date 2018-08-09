@@ -8,7 +8,7 @@
 echo "================================"
 echo "installing java default-jre"
 
-sudo apt-get install openjdk-8-jdk
+sudo apt-get install -y openjdk-8-jdk
 
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
@@ -40,6 +40,12 @@ sudo /etc/init.d/apache2 restart
 #cd /home/sp_ricardo/Exercicios/workflow/autorization
 #mvn clean install
 
+
+echo #start service
+
+sudo ln -s /home/sp_ricardo/Exercicios/workflow/autorization/target/demo-0.0.1-SNAPSHOT.jar /etc/init.d/demo-0.0.1-SNAPSHOT	
+sudo update-rc.d demo-0.0.1-SNAPSHOT defaults
+sudo service demo-0.0.1-SNAPSHOT start
 
 #java -jar /home/sp_ricardo/Exercicios/workflow/autorization/target/demo-0.0.1-SNAPSHOT.jar
            

@@ -2,7 +2,7 @@
 #sudo apt-get -y install git
 #git clone https://github.com/ricardolc/Exercicios.git
 #ksh
-#cd cd /home/sp_ricardo/Exercicios/workflow/autorization
+#cd /home/sp_ricardo/Exercicios/workflow
 #sh deploy_gcl.sh
 
 echo "================================"
@@ -35,17 +35,4 @@ sudo cp 000-default.conf /etc/apache2/sites-enabled
 
 sudo /etc/init.d/apache2 restart
 
-echo "================================"
-echo "app start"
-
-cd /home/sp_ricardo/Exercicios/workflow/autorization
-mvn clean install
-
-echo "start app service"
-
-sudo ln -s /home/sp_ricardo/Exercicios/workflow/autorization/target/demo-0.0.1-SNAPSHOT.jar /etc/init.d/demo-0.0.1-SNAPSHOT	
-sudo update-rc.d demo-0.0.1-SNAPSHOT defaults
-sudo service demo-0.0.1-SNAPSHOT start
-
-#java -jar /home/sp_ricardo/Exercicios/workflow/autorization/target/demo-0.0.1-SNAPSHOT.jar
            

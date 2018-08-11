@@ -11,4 +11,6 @@ sudo ln -s /home/sp_ricardo/Exercicios/workflow/autorization/target/demo-0.0.1-S
 sudo update-rc.d demo-0.0.1-SNAPSHOT defaults
 sudo service demo-0.0.1-SNAPSHOT start
 
+#sudo service nginx start
+
 #java -jar /home/sp_ricardo/Exercicios/workflow/autorization/target/demo-0.0.1-SNAPSHOT.jar

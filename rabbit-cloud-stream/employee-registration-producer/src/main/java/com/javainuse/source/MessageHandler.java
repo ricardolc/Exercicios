@@ -4,11 +4,11 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 
-@EnableBinding(InputChannel.class)
+@EnableBinding(Sink.class)
 public class MessageHandler {
-    @StreamListener(Sink.INPUT)
+	@StreamListener(target = Sink.INPUT)
     public void handle(String message) {
        // log.info("message received {}", message);
-        System.out.println(message);
+        System.out.println("queue recepted " + message);
     }
 }

@@ -8,22 +8,9 @@ import org.springframework.cloud.stream.messaging.Sink;
 
 @EnableBinding(Sink.class)
 @SpringBootApplication
-public class FoodOrderPublisherApplication {
+public class FoodOrderConsumerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FoodOrderPublisherApplication.class, args);
-	}
-	
-	
-	@StreamListener(target = Sink.INPUT)
-	public void processCheapMeals(String meal){
-		System.out.println("This was a great meal!: "+meal);
-		
-		if (meal.contains("emp0003")) {
-			throw new IllegalArgumentException("codigo invalido");
-			
-		}
-		
-		
+		SpringApplication.run(FoodOrderConsumerApplication.class, args);
 	}
 }

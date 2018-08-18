@@ -5,7 +5,7 @@ import org.springframework.messaging.MessageChannel;
 
 public interface CustomerSource {
 
-    @Output("customerChannel")
+    @Output("customerChannelOutput")
     MessageChannel customerOrder();
 
 }

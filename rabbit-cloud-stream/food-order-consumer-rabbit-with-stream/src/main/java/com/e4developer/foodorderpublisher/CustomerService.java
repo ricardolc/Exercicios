@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class CustomerService {
 
-//	@Autowired
-//	public CustomerSource customerSource;
+    @Autowired
+    public FoodOrderSource foodOrderSource;
 	
 	
 //	public Client client;
@@ -20,8 +20,8 @@ public class CustomerService {
 	
 		
 		
-		String json = "{ 'cpf' : '111', 'nome' : 'ricardo' }";
-//		customerSource.customerOrder().send(MessageBuilder.withPayload(client).build());
+		String json = "{ 'restaurant':'Paris 622', 'customerAddress' : 'emp0004', 'orderDescription' : 'true' }";
+		foodOrderSource.foodOrdersInput().send(MessageBuilder.withPayload(json).build());
 		
 		
 	}

@@ -5,7 +5,7 @@ import org.springframework.messaging.MessageChannel;
 
 public interface FoodOrderSource {
 
-    @Output("foodOrdersChannel")
+    @Output("foodOrdersChannelOutput")
     MessageChannel foodOrders();
 
 

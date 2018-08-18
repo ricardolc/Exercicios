@@ -15,7 +15,7 @@ public class CustomerController {
 
     @RequestMapping("/customer")
     @ResponseBody
-    public String orderFood(@RequestBody Client client){
+    public String orderFood(@RequestBody Customer client){
     	customerSource.customerOrder().send(MessageBuilder.withPayload(client).build());
         System.out.println(client.toString());
         return "customer ordered!";

@@ -3,7 +3,7 @@ package com.e4developer.foodorderpublisher;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Client {
+public class Customer {
 
 	private String nome;
 	private String cpf;
@@ -19,13 +19,13 @@ public class Client {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Client(String nome, String cpf) {
+	public Customer(String nome, String cpf) {
 		
 		this.nome = nome;
 		this.cpf = cpf;
 	}
 	
-	public Client() {
+	public Customer() {
 	}
 	
 	@Override

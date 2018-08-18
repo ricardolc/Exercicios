@@ -10,7 +10,7 @@ import org.springframework.cloud.stream.messaging.Sink;
 //@EnableBinding(Sink.class)
 @EnableBinding(CustomerSource.class)
 @EnableAutoConfiguration
-public class ClientConsumer {
+public class CustomerConsumer {
 
 	//@StreamListener(target = Sink.INPUT)
 	@StreamListener("customerChannel")

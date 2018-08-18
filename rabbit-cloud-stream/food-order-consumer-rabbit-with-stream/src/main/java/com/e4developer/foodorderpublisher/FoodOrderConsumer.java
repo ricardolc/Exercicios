@@ -17,7 +17,7 @@ public class FoodOrderConsumer {
 	
 	//@StreamListener(target = Sink.INPUT)
 	
-	@StreamListener("foodOrdersChannel")
+	@StreamListener("foodOrdersChannelInput")
 	public void processCheapMeals(String meal) throws Exception{
 	//	TimeUnit.SECONDS.sleep(1);
 		System.out.println("FoodOrderConsumer: "+meal);

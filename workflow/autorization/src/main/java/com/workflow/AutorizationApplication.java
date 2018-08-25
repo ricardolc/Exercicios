@@ -1,14 +1,11 @@
-package com.workflow.main;
-
-
+package com.workflow;
 
 import static springfox.documentation.builders.PathSelectors.regex;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -21,26 +18,30 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 //http://www.ciceroednilson.com.br/desenvolvendo-uma-aplicacao-web-com-angular-4-e-spring-boot-parte-2-criando-o-banco-de-dados/
 //http://www.thejavageek.com/2017/06/16/crud-application-using-angular-4-spring-rest-web-services-spring-data-jpa/
+//@ComponentScan({"com.workflow.controller", "com.workflow.service"})
+//@EntityScan("com.workflow.model")
+//@EnableJpaRepositories("com.workflow.repository")
+
+//@EnableJpaRepositories("com.workflow.repository")
+//@EntityScan("com.workflow.model")
+
 @SpringBootApplication
+@EnableAutoConfiguration
 @EnableSwagger2
-
-//@ComponentScan({"com.workflow"})
-@ComponentScan({"com.workflow.controller", "com.workflow.service"})
-@EntityScan("com.workflow.model")
-@EnableJpaRepositories("com.workflow.repository")
-
-
-public class Main extends SpringBootServletInitializer {
+@ComponentScan
+@EnableJpaRepositories
+@EntityScan
+public class AutorizationApplication { // extends SpringBootServletInitializer {
 	
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(Main.class);
-	}
+	//@Override
+	//protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	//	return application.sources(autorizationApplication.class);
+	//}
 
 
 	public static void main(String[] args) {
 		System.getProperties().put( "server.port", 8090 );  //8181 port is set here
-		SpringApplication.run(Main.class, args);
+		SpringApplication.run(AutorizationApplication.class, args);
 	}
 	
 

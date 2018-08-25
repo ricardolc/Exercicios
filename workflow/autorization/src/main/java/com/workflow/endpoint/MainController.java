@@ -1,4 +1,4 @@
-package com.workflow.controller;
+package com.workflow.endpoint;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

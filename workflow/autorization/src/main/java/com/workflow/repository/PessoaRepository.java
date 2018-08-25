@@ -1,18 +1,12 @@
 package com.workflow.repository;
 
-import java.util.List;
+import java.io.Serializable;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-import com.workflow.model.PessoaModel;
+import com.workflow.domain.PessoaModel;
  
-public interface PessoaRepository extends Repository<PessoaModel, Integer> {
+public interface PessoaRepository extends CrudRepository<PessoaModel, Serializable> {
  
-	void save(PessoaModel pessoa);
- 
-	void delete(PessoaModel pessoa);
- 
-	List<PessoaModel> findAll();
- 
-	PessoaModel findOne(Integer id);
+
 }

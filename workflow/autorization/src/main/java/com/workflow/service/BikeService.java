@@ -2,7 +2,7 @@ package com.workflow.service;
 
 import java.util.List;
 
-import com.workflow.model.Bike;
+import com.workflow.domain.Bike;
 
 public interface BikeService {
 	 

@@ -1,4 +1,4 @@
-package com.workflow.controller;
+package com.workflow.endpoint;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
- 
-import com.workflow.model.Bike;
+
+import com.workflow.domain.Bike;
 import com.workflow.service.BikeService;
  
 @RestController

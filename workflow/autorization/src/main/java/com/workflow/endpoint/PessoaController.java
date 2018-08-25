@@ -1,9 +1,10 @@
-package com.workflow.controller;
+package com.workflow.endpoint;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.workflow.model.PessoaModel;
-import com.workflow.model.ResponsePessoaModel;
+import com.workflow.domain.PessoaModel;
+import com.workflow.domain.ResponsePessoaModel;
+import com.workflow.endpoint.configuration.ResourceNotFoundException;
 import com.workflow.repository.PessoaRepository;
+import com.workflow.service.PessoaService;
  
 @RestController
 @RequestMapping("/service")
@@ -22,7 +25,7 @@ import com.workflow.repository.PessoaRepository;
 public class PessoaController {
  
 	@Autowired
-	private PessoaRepository pessoaRepository; 
+	private PessoaService pessoaService; 
 	
 	/**
 	 * SALVAR UM NOVO REGISTRO
@@ -35,7 +38,7 @@ public class PessoaController {
  
 		try {
  
-			this.pessoaRepository.save(pessoa);
+			this.pessoaService.save(pessoa);
  
 			return new ResponsePessoaModel(1,"Registro salvo com sucesso!");
  
@@ -55,7 +58,7 @@ public class PessoaController {
  
 		try {
  
-			this.pessoaRepository.save(pessoa);		
+			this.pessoaService.save(pessoa);		
  
 			return new ResponsePessoaModel(1,"Registro atualizado com sucesso!");
  
@@ -72,20 +75,33 @@ public class PessoaController {
 	@RequestMapping(value="/pessoa", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody List<PessoaModel> consultar(){
  
-		return this.pessoaRepository.findAll();
+		return this.pessoaService.findAll();
 	}
+	
+	
  
 	/**
 	 * BUSCAR UMA PESSOA PELO CÓDIGO
 	 * @param codigo
 	 * @return
 	 */
+	//@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	//public @ResponseBody PessoaModel buscar(@PathVariable("codigo") Integer codigo){
+ 
+	//	return this.pessoaRepository.findOne(codigo);
+	//}
+
 	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody PessoaModel buscar(@PathVariable("codigo") Integer codigo){
+	public PessoaModel buscar(@PathVariable("codigo") Integer codigo){
  
-		return this.pessoaRepository.findOne(codigo);
+		PessoaModel pm = this.pessoaService.findOne(codigo);
+		
+		return pm;
+		//return null;
 	}
- 
+
+	
+	
 	/***
 	 * EXCLUIR UM REGISTRO PELO CÓDIGO
 	 * @param codigo
@@ -94,11 +110,11 @@ public class PessoaController {
 	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponsePessoaModel excluir(@PathVariable("codigo") Integer codigo){
  
-		PessoaModel pessoaModel = pessoaRepository.findOne(codigo);
+		PessoaModel pessoaModel = pessoaService.findOne(codigo);
  
 		try {
  
-			pessoaRepository.delete(pessoaModel);
+			pessoaService.delete(pessoaModel);
  
 			return new ResponsePessoaModel(1, "Registro excluido com sucesso!");
  

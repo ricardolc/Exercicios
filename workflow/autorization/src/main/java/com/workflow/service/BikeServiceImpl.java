@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.workflow.model.Bike;
+import com.workflow.domain.Bike;
 import com.workflow.repository.BikeRepository;
  
 

@@ -1,4 +1,4 @@
-package com.workflow.model;
+package com.workflow.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

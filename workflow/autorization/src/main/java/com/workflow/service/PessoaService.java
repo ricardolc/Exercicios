@@ -2,15 +2,15 @@ package com.workflow.service;
 
 import java.util.List;
 
-import com.workflow.domain.PessoaModel;
+import com.workflow.domain.Pessoa;
 
 public interface PessoaService {
 
-	void save(PessoaModel pessoa);
+	void save(Pessoa pessoa);
 	 
-	void delete(PessoaModel pessoaModel);
+	void delete(Pessoa pessoaModel);
  
-	List<PessoaModel> findAll();
+	List<Pessoa> findAll();
  
-	PessoaModel findOne(Integer id);
+	Pessoa findOne(Integer id);
 }

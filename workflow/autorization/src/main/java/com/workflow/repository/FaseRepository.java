@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.workflow.domain.Pessoa;
- 
-public interface PessoaRepository extends CrudRepository<Pessoa, Serializable> {
- 
+import com.workflow.domain.Fase;
+
+public interface FaseRepository extends CrudRepository<Fase, Serializable> {
+	 
 
 }

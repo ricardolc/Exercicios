@@ -1,4 +1,4 @@
-package com.workflow.domain;
+package com.workflow.domain.response;
 
 
 public class ResponsePessoaModel {

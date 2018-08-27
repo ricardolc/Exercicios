@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,15 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.workflow.domain.PessoaModel;
-import com.workflow.domain.ResponsePessoaModel;
-import com.workflow.endpoint.configuration.ResourceNotFoundException;
-import com.workflow.repository.PessoaRepository;
+import com.workflow.domain.Pessoa;
+import com.workflow.domain.response.ResponsePessoaModel;
 import com.workflow.service.PessoaService;
- 
+
+//@CrossOrigin(origins  = "http://localhost:4200")
+
 @RestController
 @RequestMapping("/service")
-@CrossOrigin(origins  = "http://localhost:4200")
 public class PessoaController {
  
 	@Autowired
@@ -33,14 +30,14 @@ public class PessoaController {
 	 * @return
 	 */
 	@RequestMapping(value="/pessoa", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody ResponsePessoaModel salvar(@RequestBody PessoaModel pessoa){
+	public @ResponseBody ResponsePessoaModel salvar(@RequestBody Pessoa pessoa){
  
  
 		try {
  
 			this.pessoaService.save(pessoa);
  
-			return new ResponsePessoaModel(1,"Registro salvo com sucesso!");
+			return new ResponsePessoaModel(pessoa.getCodigo(),"Registro salvo com sucesso!");
  
 		}catch(Exception e) {
  
@@ -54,7 +51,7 @@ public class PessoaController {
 	 * @return
 	 */
 	@RequestMapping(value="/pessoa", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody ResponsePessoaModel atualizar(@RequestBody PessoaModel pessoa){
+	public @ResponseBody ResponsePessoaModel atualizar(@RequestBody Pessoa pessoa){
  
 		try {
  
@@ -73,7 +70,7 @@ public class PessoaController {
 	 * @return
 	 */
 	@RequestMapping(value="/pessoa", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody List<PessoaModel> consultar(){
+	public List<Pessoa> consultar(){
  
 		return this.pessoaService.findAll();
 	}
@@ -92,9 +89,9 @@ public class PessoaController {
 	//}
 
 	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public PessoaModel buscar(@PathVariable("codigo") Integer codigo){
+	public Pessoa buscar(@PathVariable("codigo") Integer codigo){
  
-		PessoaModel pm = this.pessoaService.findOne(codigo);
+		Pessoa pm = this.pessoaService.findOne(codigo);
 		
 		return pm;
 		//return null;
@@ -110,7 +107,7 @@ public class PessoaController {
 	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponsePessoaModel excluir(@PathVariable("codigo") Integer codigo){
  
-		PessoaModel pessoaModel = pessoaService.findOne(codigo);
+		Pessoa pessoaModel = pessoaService.findOne(codigo);
  
 		try {
  

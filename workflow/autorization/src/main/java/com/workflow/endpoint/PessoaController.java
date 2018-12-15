@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workflow.domain.Pessoa;
-import com.workflow.domain.response.ResponsePessoaModel;
+import com.workflow.domain.request.response.ResponsePessoaModel;
 import com.workflow.service.PessoaService;
 
 //@CrossOrigin(origins  = "http://localhost:4200")

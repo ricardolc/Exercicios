@@ -1,0 +1,57 @@
+https://www.digitalocean.com/community/tutorials/an-introduction-to-using-consul-a-service-discovery-system-on-ubuntu-14-04
+#export PATH=/usr/bin:/bin:/usr/sbin:/sbin:usr/local/bin/node:/usr/local/bin/npm:
+consul_0.3.0_linux_amd64.zip
+consul_0.3.0_web_ui.zip
+
+apt-get update
+apt-get install unzip screen
+
+cd /usr/local/bin
+wget https://releases.hashicorp.com/consul/0.3.0/consul_0.3.0_linux_amd64.zip
+
+wget https://releases.hashicorp.com/consul/0.3.0/consul_0.3.0_web_ui.zip
+
+unzip *.zip
+rm *.zip
+
+server1 - iniciando o primeiro servidor
+consul agent -server -bootstrap -data-dir /tmp/consul  > /dev/null &
+consul agent -server -data-dir /tmp/consul > /dev/null &
+
+parando job
+kill $(jobs -p)
+
+
+
+server2 e server3- iniciando o consul agent
+consul agent -server -data-dir /tmp/consul
+
+server1 (em outro terminal)
+consul join 192.0.2.2 192.0.2.3
+
+consul members
+
+servidor backend
+consul agent -server -data-dir /tmp/consul > /dev/null &
+
+consul join 192.0.2.2
+
+cd ~
+wget https://releases.hashicorp.com/consul/0.3.0/consul_0.3.0_web_ui.zip
+
+unzip *.zip
+rm *.zip
+
+consul agent -data-dir /tmp/consul -client 192.0.2.50 -ui-dir /home/sp_ricardo/dir -join 192.0.2.1 > /dev/null &
+consul agent -data-dir /tmp/consul -client 172.18.0.5 -ui-dir /home/ricardo/dist -join 172.18.0.2 > /dev/null &
+consul agent -data-dir /tmp/consul -client 172.18.0.5 -ui-dir /home/ricardo/dist -join 172.18.0.2 > /dev/null &
+
+consul agent -data-dir /tmp/consul -client 172.18.0.6 -ui-dir /home/ricardo/dist -join 172.18.0.2 -config-dir /home/ricardo/services  > /dev/null &
+
+
+http://172.18.0.5/ui/ 
+http://localhost:9083
+
+
+consul members -rpc-addr=192.0.2.50:8400
+

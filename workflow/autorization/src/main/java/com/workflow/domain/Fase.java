@@ -6,8 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.Data;
-
 @Table(name="tb_fase")
 @Entity
 public class Fase {

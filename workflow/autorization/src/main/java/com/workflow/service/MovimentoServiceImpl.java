@@ -13,7 +13,6 @@ import com.workflow.domain.Status;
 import com.workflow.domain.request.response.MovimentoRequest;
 import com.workflow.repository.FaseRepository;
 import com.workflow.repository.MovimentoRepository;
-import com.datastax.driver.core.utils.UUIDs;
 
 
 @Service

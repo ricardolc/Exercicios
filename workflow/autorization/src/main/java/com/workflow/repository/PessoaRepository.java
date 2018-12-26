@@ -8,5 +8,6 @@ import com.workflow.domain.Pessoa;
  
 public interface PessoaRepository extends CrudRepository<Pessoa, Serializable> {
  
+	Pessoa findOne(int id);
 
 }

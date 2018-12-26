@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
-
 @Table(name = "tb_fluxo")
 @Entity
 public class Fluxo {
@@ -14,9 +12,9 @@ public class Fluxo {
 
 	@Id
 	@Column(name = "id_fluxo")
-	private Integer idFluxo;
+	private int idFluxo;
 
-	public Integer getIdFluxo() {
+	public int getIdFluxo() {
 		return idFluxo;
 	}
 

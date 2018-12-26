@@ -50,7 +50,7 @@ public class PessoaServiceImpl implements PessoaService{
 	@Override
 	public Pessoa findOne(Integer id) {
 		// TODO Auto-generated method stub
-		Pessoa pessoaModel = repository.findOne(id);
+		Pessoa pessoaModel = (Pessoa) repository.findOne(id);
 		
 		if (pessoaModel == null)
 			throw new ResourceNotFoundException(new Long(id), "user not found");
